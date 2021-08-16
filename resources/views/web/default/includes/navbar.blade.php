@@ -5,99 +5,42 @@
 @endphp
 
 <div id="navbarVacuum"></div>
-<nav id="navbar" class="navbar navbar-expand-lg navbar-light">
-    <div class="{{ (!empty($isPanel) and $isPanel) ? 'container-fluid' : 'container'}}">
-        <div class="d-flex align-items-center justify-content-between w-100">
 
-            <a class="navbar-brand navbar-order mr-0" href="/">
-                @if(!empty($generalSettings['logo']))
-                    <img src="{{ $generalSettings['logo'] }}" class="img-cover" alt="site logo">
-                @endif
-            </a>
 
-            <button class="navbar-toggler navbar-order" type="button" id="navbarToggle">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="mx-lg-30 d-none d-lg-flex flex-grow-1 navbar-toggle-content " id="navbarContent">
-                <div class="navbar-toggle-header text-right d-lg-none">
-                    <button class="btn-transparent" id="navbarClose">
-                        <i data-feather="x" width="32" height="32"></i>
-                    </button>
+<div class="aa-header">
+        <div class="aa-header__warpper">
+            <div class="aa-header__small d-lg-none d-sm-block">
+                <div class=" d-flex justify-content-between align-items-center">
+                    <div><a href="#" id="aaMenuTriger"><img class="d-inline-block p-2" style="margin-left: 8px;" src="assets/imgs/align-justify.svg" alt=""></a></div>
+                    <div class="h1"  style="transform: translate(100px,0px);">LOGO</div>
+                    <div style="margin-right: 12px;">
+                        <a href="/cart/" tabindex="0" class="" style="margin:0 1rem; width: 24px; height: 24px; display: inline-flex; justify-content: center;align-items: center;">
+                            <svg id="icon-cart" viewBox="0 0 24 24" width="24" height="24"><path d="M15.55 13c.75 0 1.41-.41 1.75-1.03l3.58-6.49A.996.996 0 0020.01 4H5.21l-.94-2H1v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.48 17 7 17h12v-2H7l1.1-2h7.45zM6.16 6h12.15l-2.76 5H8.53L6.16 6zM7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"></path></svg>
+                        </a>
+                        <button class="aa-btn aa-btn-signup">Sign up</button>
+                        <button class="aa-btn aa-btn-signin">Login</button>
+                    </div>
                 </div>
-
-                <ul class="navbar-nav mr-auto d-flex align-items-center">
-                    @if(!empty($categories) and count($categories))
-                        <li class="mr-lg-25">
-                            <div class="menu-category">
-                                <ul>
-                                    <li class="cursor-pointer user-select-none d-flex xs-categories-toggle">
-                                        <i data-feather="grid" width="20" height="20" class="mr-10 d-none d-lg-block"></i>
-                                        {{ trans('categories.categories') }}
-
-                                        <ul class="cat-dropdown-menu">
-                                            @foreach($categories as $category)
-                                                <li>
-                                                    <a href="{{ (!empty($category->subCategories) and count($category->subCategories)) ? '#!' : $category->getUrl() }}">
-                                                        <div class="d-flex align-items-center">
-                                                            <img src="{{ $category->icon }}" class="cat-dropdown-menu-icon mr-10" alt="{{ $category->title }} icon">
-                                                            {{ $category->title }}
-                                                        </div>
-
-                                                        @if(!empty($category->subCategories) and count($category->subCategories))
-                                                            <i data-feather="chevron-right" width="20" height="20" class="d-none d-lg-inline-block ml-10"></i>
-                                                            <i data-feather="chevron-down" width="20" height="20" class="d-inline-block d-lg-none"></i>
-                                                        @endif
-                                                    </a>
-
-                                                    @if(!empty($category->subCategories) and count($category->subCategories))
-                                                        <ul class="sub-menu" >
-                                                            @foreach($category->subCategories as $subCategory)
-                                                                <li><a href="{{ $subCategory->getUrl() }}">{{ $subCategory->title }}</a></li>
-                                                            @endforeach
-                                                        </ul>
-                                                    @endif
-                                                </li>
-                                            @endforeach
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                    @endif
-
-                    @if(!empty($navbarPages) and count($navbarPages))
-                        @foreach($navbarPages as $navbarPage)
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ $navbarPage['link'] }}">{{ $navbarPage['title'] }}</a>
-                            </li>
-                        @endforeach
-                    @endif
-                </ul>
             </div>
-
-            <div class="nav-icons-or-start-live navbar-order">
-
-                <a href="{{ empty($authUser) ? '/login' : ($authUser->isAdmin() ? '/admin/webinars/create' : (($authUser->isUser()) ? '/become_instructor' : '/panel/webinars/new')) }}" class="d-none d-lg-flex btn btn-sm btn-primary nav-start-a-live-btn">
-                    {{ (empty($authUser) or !$authUser->isUser()) ? trans('navbar.start_a_live_class') : ($authUser->isUser() ? trans('site.become_instructor') : '') }}
-                </a>
-
-                <a href="{{ empty($authUser) ? '/login' : (($authUser->isUser()) ? '/become_instructor' : '/panel/webinars/new') }}" class="d-flex d-lg-none text-primary nav-start-a-live-btn font-14">
-                    {{ (empty($authUser) or !$authUser->isUser()) ? trans('navbar.start_a_live_class') : ($authUser->isUser() ? trans('site.become_instructor') : '') }}
-                </a>
-
-                <div class="d-none nav-notify-cart-dropdown top-navbar ">
-                    @include(getTemplate().'.includes.shopping-cart-dropdwon')
-
-                    <div class="border-left mx-15"></div>
-
-                    @include(getTemplate().'.includes.notification-dropdown')
+            <div class="aa-header__xl d-none d-lg-block">
+                <div class=" d-flex justify-content-between align-items-center">
+                    <div class="h1">LOGO</div>
+                    <div><button class="aa-header__xl__btn-category">Categories</button></div>
+                    <div class=" flex-grow-1 px-5">
+                        <input class="aa-header__xl__serch" type="text" name="" id="" placeholder="Search">
+                    </div>
+                    <div style="margin-right: 12px;">
+                        <a href="/cart/" tabindex="0" class="" style="margin:0 1rem; width: 24px; height: 24px; display: inline-flex; justify-content: center;align-items: center;">
+                            <svg id="icon-cart" viewBox="0 0 24 24" width="24" height="24"><path d="M15.55 13c.75 0 1.41-.41 1.75-1.03l3.58-6.49A.996.996 0 0020.01 4H5.21l-.94-2H1v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.48 17 7 17h12v-2H7l1.1-2h7.45zM6.16 6h12.15l-2.76 5H8.53L6.16 6zM7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"></path></svg>
+                        </a>
+                        <a class="aa-btn aa-btn-signup">Sign up</a>
+                        <a class="aa-btn aa-btn-signin">Login</a>
+                    </div>
                 </div>
-
             </div>
+            <div class="aa-cat-menu"></div>
         </div>
     </div>
-</nav>
 
 @push('scripts_bottom')
     <script src="/assets/default/js/parts/navbar.min.js"></script>

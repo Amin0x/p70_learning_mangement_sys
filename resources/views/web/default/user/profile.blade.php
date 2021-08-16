@@ -3,6 +3,79 @@
 @push('styles_top')
     <link rel="stylesheet" href="/assets/default/vendors/persian-datepicker/persian-datepicker.min.css"/>
     <link rel="stylesheet" href="/assets/default/css/css-stars.css">
+    <style>
+        .btn-follow {
+            text-rendering: optimizeLegibility;
+            -webkit-text-size-adjust: 100%;
+            margin: 0;
+            font: inherit;
+            vertical-align: baseline;
+            display: inline-block;
+            text-align: center;
+            -webkit-font-smoothing: antialiased;
+            -webkit-appearance: none;
+            outline: none;
+            font-weight: 700;
+            white-space: nowrap;
+            font-family: gt walsheim pro, helvetica, arial, sans-serif;
+            border: 2px solid #3722d3;
+            box-sizing: border-box;
+            color: #3722d3;
+            border-radius: 20px;
+            text-decoration: none;
+            line-height: 20px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 5px;
+            height: 40px;
+            font-size: 14px;
+            transition: all 0.5s ease-in-out;
+        }
+
+
+        .btn-follow:hover {
+            border-color: #3722d3;
+            color: #f1f1f1;
+            background-color: #3722d3;
+        }
+
+        .follow-stats .follow-stats-wrapper-user-stats .number {
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .follow-stats .follow-stats-wrapper-user-stats .follow-stat {
+            font-weight: 400;
+        }
+
+        .am-user-profile-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .am-user-profile-info .am-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .follow-stats-wrapper-user-stats a {
+            margin-right: 0.5rem;
+            margin-left: 0.5rem;
+        }
+
+        @media screen and (min-width:992px) {
+            .am-user-profile-info {
+                display: block;
+            }
+
+            .am-user-profile-info .am-info {
+                flex-direction: column-reverse;
+            }
+        }
+    </style>
 @endpush
 
 
@@ -10,7 +83,7 @@
     
 
 
-<div style="max-width: 1000px; margin: 50px auto 0;">
+<div class="aa-profile">
         <div class="row">
             <div class="col-lg-3 col-md-12">
                 <div class="am-user-profile-info">
@@ -55,12 +128,11 @@
                             </div>
                         </div>
                         <div class="am-btn-follow-w text-center mt-3">
-                            <a href="javascript:;" id="followToggle" data-user-id="{{ $user['id'] }}" class="btn btn-follow" title="Follow" rel="nofollow"><i data-feather="plus"></i> Follow</a>
-                            <button type="button" id="followToggle" data-user-id="{{ $user['id'] }}" class="btn btn-{{ (!empty($authUserIsFollower) and $authUserIsFollower) ? 'danger' : 'primary' }} btn-sm">
+                            <button type="button" id="followToggle" data-user-id="{{ $user['id'] }}" class="btn btn-follow">
                                 @if(!empty($authUserIsFollower) and $authUserIsFollower)
                                     {{ trans('panel.unfollow') }}
                                 @else
-                                    {{ trans('panel.follow') }}
+                                <i data-feather="plus"></i>{{ trans('panel.follow') }}
                                 @endif
                             </button>
                         </div>
@@ -79,37 +151,7 @@
                 <div class="section">
                     @include(getTemplate().'.user.profile_tabs.webinars')
                 </div>
-                <div>@include(getTemplate().'.user.profile_tabs.badges')</div>
-                <div>@include(getTemplate().'.user.profile_tabs.appointments')</div>
-                <div class="section">
-                    <div class="section-header">
-                        <h2>NEW CLASS! Take Control of your Personal Finances</h2>
-                    </div>
-                    <div class="section-content row discussions use-flexbox populated">
-                        <div class="col-2 discussion-column">
-                            <div class="discussion-grid-item-wrapper">
-                                <a href="#" class="link-main no-bold">
-                                    <div class="discussion-grid-item">
-                                        <div class="discussion-header-wrapper">
-                                            <div class="discussion-header">
-                                                <div class="discussion-title font-size-6">
-                                                    <strong>NEW CLASS! Take Control of your Personal Finances</strong>
-                                                </div>
-                                                <div class="discussion-data font-size-6">about 1 year ago<span class="middot">·</span><span class="ss-icon-empty-comment">4</span></div>
-                                            </div>
-                                        </div>
-                                        <div class="horizontal-rule"></div>
-                                        <div class="discussion-content-wrapper">
-                                            <div class="discussion-content">Hi Everyone!I’ve taught a bunch of classes,</div>
-                                        </div>
-                                        <div class="fade-text"></div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                      
-                    </div>
-                </div>
+                                
 
             </div>
         </div>
