@@ -15,7 +15,9 @@
     <link rel="stylesheet" href="/assets/default/vendors/sweetalert2/dist/sweetalert2.min.css">
     <link rel="stylesheet" href="/assets/default/vendors/toast/jquery.toast.min.css">
     <link rel="stylesheet" href="/assets/default/vendors/simplebar/simplebar.css">
+    <link rel="stylesheet" href="/assets/default/css/aastyle.css">
     <link rel="stylesheet" href="/assets/default/css/app.css">
+
 
     @if($isRtl)
         <link rel="stylesheet" href="/assets/default/css/rtl-app.css">
@@ -27,79 +29,7 @@
     <style>
         {!! !empty(getCustomCssAndJs('css')) ? getCustomCssAndJs('css') : '' !!}
     </style>
-    <style>
-        .aa-header{
-            width: 100%;
-            height: 80px;
-            display: flex;            
-            justify-content: center;
-            align-items: center;;
-        }
-        .aa-header .aa-header__warpper{
-            flex-grow: 1;
-        }
-        .aa-header__xl__serch{
-            width: 100%;
-            padding: 8px 10px;
-            border: 1px solid #ccc;
-            border-radius: 20px 20px 20px 20px;
-            outline: 0;
-            margin-right: 2.2rem;
-        }
-
-        .aa-header__xl__btn-category{
-            position: relative;
-            align-items: center;
-            border: none;
-            cursor: pointer;
-            display: inline-flex;
-            min-width: 8rem;
-            padding: 0 1.2rem;
-            justify-content: center;
-            user-select: none;
-            vertical-align: bottom;
-            white-space: nowrap;
-            color: #5624d0;
-            background-color: transparent;
-            min-width: auto;
-            padding: 0 1.2rem;
-        }
-
-        .aa-btn {
-            text-decoration: none;
-            height: 40px;
-            position: relative;
-            align-items: center;
-            display: inline-flex;
-            min-width: 8rem;
-            padding: 0 1.2rem;
-            justify-content: center;
-            user-select: none;
-            vertical-align: bottom;
-            color: #5624d0;
-            border: 1px solid #5624d0;
-            cursor: pointer;
-            background-color: transparent;
-            min-width: auto;
-            outline: 0;
-        }
-
-        .aa-btn-signup{
-            background-color: black;
-            color: #fff!important;
-        }
-
-        .aa-btn-signup:hover{
-            background-color: rgb(14, 13, 13);
-            color: #fff!important;
-        }
-        .aa-btn-signin:hover{
-            color: #2d0591;
-            border: 1px solid #2d0591;
-            background-color: rgb(216, 216, 216);
-        }
-
-    </style>
+   
 
     @if(!empty($generalSettings['preloading']) and $generalSettings['preloading'] == '1')
         @include('admin.includes.preloading')

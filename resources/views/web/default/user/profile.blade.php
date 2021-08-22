@@ -3,79 +3,8 @@
 @push('styles_top')
     <link rel="stylesheet" href="/assets/default/vendors/persian-datepicker/persian-datepicker.min.css"/>
     <link rel="stylesheet" href="/assets/default/css/css-stars.css">
-    <style>
-        .btn-follow {
-            text-rendering: optimizeLegibility;
-            -webkit-text-size-adjust: 100%;
-            margin: 0;
-            font: inherit;
-            vertical-align: baseline;
-            display: inline-block;
-            text-align: center;
-            -webkit-font-smoothing: antialiased;
-            -webkit-appearance: none;
-            outline: none;
-            font-weight: 700;
-            white-space: nowrap;
-            font-family: gt walsheim pro, helvetica, arial, sans-serif;
-            border: 2px solid #3722d3;
-            box-sizing: border-box;
-            color: #3722d3;
-            border-radius: 20px;
-            text-decoration: none;
-            line-height: 20px;
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            padding: 0 5px;
-            height: 40px;
-            font-size: 14px;
-            transition: all 0.5s ease-in-out;
-        }
-
-
-        .btn-follow:hover {
-            border-color: #3722d3;
-            color: #f1f1f1;
-            background-color: #3722d3;
-        }
-
-        .follow-stats .follow-stats-wrapper-user-stats .number {
-            font-size: 22px;
-            font-weight: 700;
-        }
-
-        .follow-stats .follow-stats-wrapper-user-stats .follow-stat {
-            font-weight: 400;
-        }
-
-        .am-user-profile-info {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .am-user-profile-info .am-info {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .follow-stats-wrapper-user-stats a {
-            margin-right: 0.5rem;
-            margin-left: 0.5rem;
-        }
-
-        @media screen and (min-width:992px) {
-            .am-user-profile-info {
-                display: block;
-            }
-
-            .am-user-profile-info .am-info {
-                flex-direction: column-reverse;
-            }
-        }
-    </style>
+   
+   
 @endpush
 
 

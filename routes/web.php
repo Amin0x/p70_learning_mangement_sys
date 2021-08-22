@@ -137,6 +137,7 @@ Route::group(['namespace' => 'Web', 'middleware' => ['impersonate', 'share']], f
         Route::get('/{category}', 'CategoriesController@index');
     });
 
+    Route::get('/classes/ajax', 'ClassesController@ajax');
     Route::get('/classes', 'ClassesController@index');
 
     Route::group(['prefix' => 'blog'], function () {
